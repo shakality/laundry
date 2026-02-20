@@ -25,11 +25,11 @@ export default function BookPickup() {
             animate={{ scale: 1, opacity: 1 }}
             className="bg-white p-12 rounded-[3rem] shadow-xl border border-slate-100"
           >
-            <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
+            <div className="w-24 h-24 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-8">
               <CheckCircle size={48} />
             </div>
-            <h1 className="text-3xl font-display font-bold mb-4">Booking Successful!</h1>
-            <p className="text-slate-600 mb-8">
+            <h1 className="text-3xl font-display font-black mb-4 uppercase tracking-tight">Booking Successful!</h1>
+            <p className="text-slate-500 mb-8 font-medium">
               Thank you for choosing Adoration Laundry. We've received your pickup request. Our representative will contact you shortly to confirm the details.
             </p>
             <button 
@@ -46,14 +46,15 @@ export default function BookPickup() {
 
   return (
     <div className="pt-24 min-h-screen bg-slate-50">
-      <div className="container-custom py-16">
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-5 gap-12">
+      <div className="container-custom py-20">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-16">
           {/* Info Sidebar */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-10">
             <div>
-              <h1 className="text-4xl font-display font-bold mb-6">Book a Pickup</h1>
-              <p className="text-slate-600 leading-relaxed">
-                Schedule your laundry pickup in less than a minute. We'll handle the rest!
+              <span className="text-primary font-black uppercase tracking-[0.2em] text-sm mb-4 block">Quick Booking</span>
+              <h1 className="text-5xl font-display font-black mb-6 uppercase tracking-tighter leading-none">BOOK A PICKUP</h1>
+              <p className="text-slate-500 leading-relaxed font-medium">
+                Schedule your laundry pickup in less than a minute. We'll handle the rest with professional care!
               </p>
             </div>
             
@@ -63,86 +64,86 @@ export default function BookPickup() {
                 { icon: <Truck className="text-primary" />, title: 'Free Pickup & Delivery', desc: 'On all orders above ₦10,000 in Lagos.' },
                 { icon: <ShieldCheck className="text-primary" />, title: 'Safe Handling', desc: 'Your garments are insured and handled with care.' }
               ].map((item, i) => (
-                <div key={i} className="flex gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                  <div className="shrink-0 w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+                <div key={i} className="flex gap-5 p-6 bg-white rounded-[2rem] border border-slate-100 shadow-sm">
+                  <div className="shrink-0 w-12 h-12 bg-primary/5 rounded-2xl flex items-center justify-center">
                     {item.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm mb-1">{item.title}</h4>
-                    <p className="text-xs text-slate-500">{item.desc}</p>
+                    <h4 className="font-black text-sm mb-1 uppercase tracking-tight">{item.title}</h4>
+                    <p className="text-xs text-slate-500 font-medium">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="p-6 bg-primary rounded-3xl text-white">
-              <p className="text-sm font-medium opacity-80 mb-2">Need help booking?</p>
-              <p className="text-xl font-bold mb-4">Call us directly</p>
-              <a href="tel:+2348001234567" className="flex items-center gap-2 text-2xl font-display font-bold hover:underline">
-                <Phone size={24} /> +234 800 123 4567
+            <div className="p-8 bg-black rounded-[2.5rem] text-white">
+              <p className="text-xs font-black uppercase tracking-widest opacity-60 mb-2">Need help booking?</p>
+              <p className="text-xl font-black mb-6 uppercase tracking-tight">Call us directly</p>
+              <a href="tel:+2348001234567" className="flex items-center gap-3 text-3xl font-display font-black text-primary hover:underline tracking-tighter">
+                <Phone size={28} /> +234 800 123 4567
               </a>
             </div>
           </div>
 
           {/* Form */}
           <div className="lg:col-span-3">
-            <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                      <User size={16} className="text-slate-400" /> Full Name
+            <div className="bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl border border-slate-100 relative overflow-hidden">
+              <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                      <User size={14} className="text-primary" /> Full Name
                     </label>
                     <input 
                       required
                       type="text" 
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all"
+                      className="w-full px-6 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all font-bold"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                      <Phone size={16} className="text-slate-400" /> Phone Number
+                  <div className="space-y-3">
+                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                      <Phone size={14} className="text-primary" /> Phone Number
                     </label>
                     <input 
                       required
                       type="tel" 
                       placeholder="+234 800 000 0000"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all"
+                      className="w-full px-6 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all font-bold"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                    <Mail size={16} className="text-slate-400" /> Email Address
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                    <Mail size={14} className="text-primary" /> Email Address
                   </label>
                   <input 
                     required
                     type="email" 
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all"
+                    className="w-full px-6 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all font-bold"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                    <MapPin size={16} className="text-slate-400" /> Pickup Address
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                    <MapPin size={14} className="text-primary" /> Pickup Address
                   </label>
                   <textarea 
                     required
                     placeholder="Enter your full address in Nigeria"
                     rows={3}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all resize-none"
+                    className="w-full px-6 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all resize-none font-bold"
                   ></textarea>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                      <ClipboardList size={16} className="text-slate-400" /> Service Type
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                      <ClipboardList size={14} className="text-primary" /> Service Type
                     </label>
-                    <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all bg-white">
+                    <select className="w-full px-6 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all font-bold appearance-none">
                       <option>Wash & Fold</option>
                       <option>Dry Cleaning</option>
                       <option>Ironing Only</option>
@@ -150,43 +151,43 @@ export default function BookPickup() {
                       <option>Traditional Wear Care</option>
                     </select>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                      <Calendar size={16} className="text-slate-400" /> Preferred Date
+                  <div className="space-y-3">
+                    <label className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                      <Calendar size={14} className="text-primary" /> Preferred Date
                     </label>
                     <input 
                       required
                       type="date" 
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all"
+                      className="w-full px-6 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all font-bold"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700">Special Instructions (Optional)</label>
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest">Special Instructions (Optional)</label>
                   <textarea 
                     placeholder="Any specific care instructions or landmark for delivery?"
                     rows={2}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all resize-none"
+                    className="w-full px-6 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all resize-none font-bold"
                   ></textarea>
                 </div>
 
                 <button 
                   disabled={isLoading}
                   type="submit" 
-                  className="btn-primary w-full py-4 text-lg flex items-center justify-center gap-2 disabled:opacity-70"
+                  className="btn-primary w-full py-6 text-xl flex items-center justify-center gap-3 disabled:opacity-70 uppercase tracking-widest"
                 >
                   {isLoading ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin"></div>
                       Processing...
                     </>
                   ) : (
-                    'Confirm Pickup Request'
+                    'Confirm Pickup'
                   )}
                 </button>
-                <p className="text-center text-xs text-slate-400">
-                  By clicking confirm, you agree to our Terms of Service and Privacy Policy.
+                <p className="text-center text-[10px] font-black uppercase tracking-widest text-slate-400">
+                  Secure booking powered by Adoration Garment Care.
                 </p>
               </form>
             </div>

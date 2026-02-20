@@ -9,7 +9,10 @@ import {
   ArrowRight,
   WashingMachine as Laundry,
   Shirt,
-  Sparkles
+  Sparkles,
+  Apple,
+  Play,
+  ArrowRight as ArrowIcon
 } from 'lucide-react';
 
 const servicesPreview = [
@@ -51,103 +54,80 @@ const steps = [
   }
 ];
 
-const testimonials = [
-  {
-    name: 'Chidi Okafor',
-    role: 'Business Executive',
-    content: 'The best laundry service in Lagos. They are punctual and my suits always come back looking brand new.',
-    rating: 5
-  },
-  {
-    name: 'Amaka Peters',
-    role: 'Fashion Designer',
-    content: 'I trust Adoration with my most delicate fabrics. Their attention to detail is unmatched.',
-    rating: 5
-  },
-  {
-    name: 'Tunde Williams',
-    role: 'Busy Parent',
-    content: 'The wash and fold service has saved me so much time. Highly recommended for busy families!',
-    rating: 5
-  }
-];
-
 export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
-        <div className="container-custom grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://picsum.photos/seed/laundry-machines/1920/1080" 
+            alt="Laundry Background" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-black/60 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10"></div>
+        </div>
+
+        <div className="container-custom relative z-20">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">
-              #1 Premium Laundry in Nigeria
-            </span>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-slate-900 leading-[1.1] mb-6">
-              Premium Laundry & <span className="text-primary">Dry Cleaning</span> Services in Nigeria
-            </h1>
-            <p className="text-lg text-slate-600 mb-10 max-w-lg leading-relaxed">
-              Experience the ultimate garment care. We pick up, clean, and deliver your clothes with professional precision and care.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/book" className="btn-primary text-center flex items-center justify-center gap-2">
-                Book Pickup <ArrowRight size={18} />
-              </Link>
-              <Link to="/services" className="btn-secondary text-center">
-                View Services
-              </Link>
-            </div>
-            
-            <div className="mt-12 flex items-center gap-6">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <img
-                    key={i}
-                    src={`https://picsum.photos/seed/user${i}/100/100`}
-                    alt="User"
-                    className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                ))}
-              </div>
-              <div className="text-sm">
-                <div className="flex text-accent">
-                  {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={14} fill="currentColor" />)}
-                </div>
-                <p className="text-slate-500 font-medium">Trusted by 2,000+ happy customers</p>
-              </div>
-            </div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="max-w-4xl"
           >
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://picsum.photos/seed/laundry-hero/800/1000"
-                alt="Professional Laundry Service"
-                className="w-full h-auto"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            {/* Decorative elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
-            
-            <div className="absolute top-1/2 -right-8 transform -translate-y-1/2 bg-white p-6 rounded-2xl shadow-xl z-20 hidden md:block border border-slate-100">
-              <div className="flex items-center gap-4 mb-2">
-                <div className="bg-green-100 text-green-600 p-2 rounded-lg">
-                  <ShieldCheck size={24} />
+            <h1 className="text-6xl md:text-8xl font-display font-black text-white leading-[0.9] tracking-tighter mb-4 uppercase">
+              WE'LL TAKE THE LAUNDRY.<br />
+              <span className="text-primary">YOU TAKE THE TIME.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl font-medium">
+              Adoration picks up, cleans, and delivers your laundry and dry cleaning.
+            </p>
+
+            {/* Input Bar */}
+            <div className="flex flex-col md:flex-row items-stretch md:items-center bg-white rounded-2xl md:rounded-full p-2 md:p-1.5 max-w-2xl shadow-2xl mb-12">
+              <div className="flex-1 flex items-center px-6 py-4 md:py-0 border-b md:border-b-0 md:border-r border-slate-100">
+                <div className="flex flex-col">
+                  <span className="text-[10px] uppercase font-black text-slate-400 tracking-widest">Pickup</span>
+                  <span className="text-slate-900 font-bold">Tonight</span>
                 </div>
-                <div>
-                  <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Quality Guaranteed</p>
-                  <p className="font-bold text-slate-900">100% Satisfaction</p>
+              </div>
+              <div className="flex-[1.5] flex items-center px-6 py-4 md:py-0">
+                <div className="flex flex-col w-full">
+                  <span className="text-[10px] uppercase font-black text-slate-400 tracking-widest">Where</span>
+                  <input 
+                    type="text" 
+                    placeholder="Add address" 
+                    className="bg-transparent border-none p-0 focus:ring-0 text-slate-900 font-bold placeholder:text-slate-300 w-full"
+                  />
+                </div>
+              </div>
+              <Link to="/book" className="bg-primary hover:bg-primary-dark text-white w-full md:w-14 h-14 rounded-xl md:rounded-full flex items-center justify-center transition-all shadow-lg shadow-primary/30 group">
+                <ArrowIcon size={24} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Ratings & Apps */}
+            <div className="flex flex-wrap items-center gap-8">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10">
+                <div className="flex gap-2">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
+                    <Apple size={20} fill="currentColor" />
+                  </div>
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
+                    <Play size={18} fill="currentColor" />
+                  </div>
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
+                    <Star size={18} fill="currentColor" />
+                  </div>
+                </div>
+                <div className="pr-4">
+                  <div className="flex text-primary">
+                    {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={12} fill="currentColor" />)}
+                  </div>
+                  <p className="text-[10px] text-white font-black uppercase tracking-widest">6,000+ reviews</p>
                 </div>
               </div>
             </div>
@@ -155,39 +135,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="section-padding bg-white">
+      {/* Services Section */}
+      <section className="section-padding bg-white relative">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">Our Premium Services</h2>
-            <p className="text-slate-600">We offer a wide range of laundry and dry cleaning services tailored to your specific needs.</p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div className="max-w-2xl">
+              <span className="text-primary font-black uppercase tracking-[0.2em] text-sm mb-4 block">Our Services</span>
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-none">
+                PREMIUM CARE FOR<br />EVERY GARMENT.
+              </h2>
+            </div>
+            <Link to="/services" className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest text-sm">
+              View All Services <ArrowRight size={20} />
+            </Link>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-10">
             {servicesPreview.map((service, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
-                className="card-hover p-8"
+                whileHover={{ y: -15 }}
+                className="card-hover p-10 group"
               >
-                <div className="mb-6 inline-block p-4 bg-primary/5 rounded-2xl">
+                <div className="mb-8 inline-block p-5 bg-primary/5 rounded-3xl group-hover:bg-primary group-hover:text-white transition-all duration-500">
                   {service.icon}
                 </div>
-                <h3 className="text-xl mb-3">{service.title}</h3>
-                <p className="text-slate-600 mb-6 text-sm leading-relaxed">
+                <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">{service.title}</h3>
+                <p className="text-slate-500 mb-8 text-sm leading-relaxed font-medium">
                   {service.description}
                 </p>
-                <Link to={service.link} className="text-primary font-bold text-sm flex items-center gap-2 group">
-                  Learn More <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                <Link to={service.link} className="w-12 h-12 rounded-full border border-slate-100 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-500">
+                  <ArrowRight size={20} />
                 </Link>
               </motion.div>
             ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Link to="/services" className="btn-secondary">
-              View All Services
-            </Link>
           </div>
         </div>
       </section>
@@ -195,92 +176,20 @@ export default function Home() {
       {/* How It Works */}
       <section className="section-padding bg-slate-50">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">How It Works</h2>
-            <p className="text-slate-600">Getting your laundry done has never been easier. Just three simple steps.</p>
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm mb-4 block">Simple Process</span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter">HOW IT WORKS</h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-12 relative">
-            {/* Connecting Line */}
-            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 -z-0"></div>
-            
+          <div className="grid md:grid-cols-3 gap-16">
             {steps.map((step, index) => (
-              <div key={index} className="relative z-10 text-center">
-                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/20">
+              <div key={index} className="text-center group">
+                <div className="w-24 h-24 bg-white text-primary rounded-[2rem] flex items-center justify-center mx-auto mb-8 shadow-xl shadow-slate-200 group-hover:bg-primary group-hover:text-white transition-all duration-500 relative">
                   {step.icon}
+                  <span className="absolute -top-4 -right-4 w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center font-black text-sm">0{index + 1}</span>
                 </div>
-                <h3 className="text-xl mb-3">{step.title}</h3>
-                <p className="text-slate-600 text-sm">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="section-padding bg-white">
-        <div className="container-custom grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl mb-8">Why Choose Adoration Laundry?</h2>
-            <div className="space-y-6">
-              {[
-                { title: 'Expert Garment Care', desc: 'We use premium detergents and advanced cleaning techniques.' },
-                { title: 'Eco-Friendly Cleaning', desc: 'Our processes are safe for your clothes and the environment.' },
-                { title: 'Fast Turnaround', desc: 'Get your clothes back fresh and clean within 24-48 hours.' },
-                { title: 'Affordable Pricing', desc: 'Premium quality service at competitive rates in Nigeria.' }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="shrink-0 w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mt-1">
-                    <CheckCircle2 size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
-                    <p className="text-sm text-slate-600">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-10">
-              <Link to="/about" className="btn-primary">
-                About Our Company
-              </Link>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4 pt-12">
-              <img src="https://picsum.photos/seed/l1/400/500" alt="Laundry" className="rounded-2xl shadow-lg" referrerPolicy="no-referrer" />
-              <img src="https://picsum.photos/seed/l2/400/300" alt="Laundry" className="rounded-2xl shadow-lg" referrerPolicy="no-referrer" />
-            </div>
-            <div className="space-y-4">
-              <img src="https://picsum.photos/seed/l3/400/300" alt="Laundry" className="rounded-2xl shadow-lg" referrerPolicy="no-referrer" />
-              <img src="https://picsum.photos/seed/l4/400/500" alt="Laundry" className="rounded-2xl shadow-lg" referrerPolicy="no-referrer" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section-padding bg-slate-50">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">What Our Clients Say</h2>
-            <p className="text-slate-600">Don't just take our word for it. Here is what our happy customers have to say.</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                <div className="flex text-accent mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-slate-600 italic mb-6">"{t.content}"</p>
-                <div className="flex items-center gap-4">
-                  <img src={`https://picsum.photos/seed/${t.name}/100/100`} alt={t.name} className="w-12 h-12 rounded-full object-cover" referrerPolicy="no-referrer" />
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
-                    <p className="text-xs text-slate-500">{t.role}</p>
-                  </div>
-                </div>
+                <h3 className="text-xl font-black mb-4 uppercase tracking-tight">{step.title}</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -290,23 +199,29 @@ export default function Home() {
       {/* CTA Banner */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="bg-primary rounded-[2rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-primary/20">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+          <div className="bg-slate-900 rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+            {/* Background Image Overlay */}
+            <div className="absolute inset-0 opacity-20">
+              <img 
+                src="https://picsum.photos/seed/laundry-cta/1200/800" 
+                alt="Laundry" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Ready to experience the best laundry service?</h2>
-              <p className="text-blue-100 mb-10 text-lg">
-                Join thousands of satisfied customers in Nigeria. Book your first pickup today and get 10% off!
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-8 uppercase leading-none">
+                READY TO SAVE<br />YOUR TIME?
+              </h2>
+              <p className="text-slate-400 mb-12 text-lg md:text-xl font-medium">
+                Join thousands of satisfied customers in Nigeria. Book your first pickup today and experience the Adoration difference.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/book" className="bg-white text-primary hover:bg-blue-50 px-8 py-4 rounded-xl font-bold transition-all shadow-lg active:scale-95">
-                  Book Your Pickup Now
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Link to="/book" className="btn-primary text-xl px-12 py-6">
+                  Book Your Pickup
                 </Link>
-                <Link to="/contact" className="bg-primary-dark text-white hover:bg-slate-900 px-8 py-4 rounded-xl font-bold transition-all border border-white/20 active:scale-95">
+                <Link to="/contact" className="btn-secondary text-xl px-12 py-6">
                   Contact Support
                 </Link>
               </div>
