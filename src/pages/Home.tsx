@@ -78,11 +78,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-6xl md:text-8xl font-display font-black text-white leading-[0.9] tracking-tighter mb-4 uppercase">
+            <h1 className="text-5xl md:text-7xl font-display font-black text-white leading-[1.1] tracking-tighter mb-6 uppercase">
               WE'LL TAKE THE LAUNDRY.<br />
               <span className="text-primary">YOU TAKE THE TIME.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl font-medium">
+            <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl font-medium">
               Adoration picks up, cleans, and delivers your laundry and dry cleaning.
             </p>
 
@@ -211,7 +211,7 @@ export default function Home() {
             </div>
             
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-8 uppercase leading-none">
+              <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-8 uppercase leading-none">
                 READY TO SAVE<br />YOUR TIME?
               </h2>
               <p className="text-slate-400 mb-12 text-lg md:text-xl font-medium">

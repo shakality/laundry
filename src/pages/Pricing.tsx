@@ -83,7 +83,7 @@ export default function Pricing() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-display font-black mb-6 uppercase tracking-tighter"
+            className="text-4xl md:text-6xl font-display font-black mb-6 uppercase tracking-tighter"
           >
             SIMPLE PRICING.<br />
             <span className="text-primary">NO SURPRISES.</span>
